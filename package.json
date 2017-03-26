@@ -1,0 +1,29 @@
+{
+  "name": "notespot",
+  "version": "1.0.0",
+  "description": "A web app for personalized audio/video playlists based on my location",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.15.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Knorgias/notespot.git"
+  },
+  "keywords": [
+    "web",
+    "app",
+    "playlist",
+    "location"
+  ],
+  "author": "Konstantinos Norgias",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Knorgias/notespot/issues"
+  },
+  "homepage": "https://github.com/Knorgias/notespot#readme"
+}
