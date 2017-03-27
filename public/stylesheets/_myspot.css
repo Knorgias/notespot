@@ -1,0 +1,47 @@
+#myspot-container {
+  width:600px;
+  height: 450px;
+  background-color: #006622;
+}
+
+#myspot-header {
+  width: 100%;
+  height: 50px;
+  background-color: #00b33c;
+  text-align: center;
+  border: solid 3px black;
+}
+
+#myspot-mainbody {
+  background-color:#00b33c;
+  padding: 5px;
+  height: 100%;
+}
+
+#lastplay-list-container {
+  width: 60%;
+  height: 100%;
+  background-color: #00b386;
+  float:left;
+}
+
+#lastplay-list-header {
+  margin: 5px 10px;
+}
+
+#mylists-container {
+   width: 40%;
+   height: 100%;
+   background-color: #996633;
+   float:left;
+}
+
+#mylists-header {
+  margin: 5px 10px;
+}
+
+#mylists-mainbody {
+  margin: 10px;
+  height: 100%;
+  background-color: blue;
+}
