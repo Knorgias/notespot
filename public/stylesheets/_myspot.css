@@ -1,10 +1,4 @@
-#myspot-container {
-  width:600px;
-  height: 450px;
-  background-color: #006622;
-}
-
-#myspot-header {
+.myspot-header {
   width: 100%;
   height: 50px;
   background-color: #00b33c;
@@ -12,35 +6,36 @@
   border: solid 3px black;
 }
 
-#myspot-mainbody {
+.myspot-mainbody {
   background-color:#00b33c;
   padding: 5px;
   height: 100%;
+  display: flex;
 }
 
-#lastplay-list-container {
+.lastplay-list-container {
   width: 60%;
   height: 100%;
   background-color: #00b386;
   float:left;
 }
 
-#lastplay-list-header {
+.lastplay-list-header {
   margin: 5px 10px;
 }
 
-#mylists-container {
-   width: 40%;
+.mylists-container {
+   flex:1;
    height: 100%;
    background-color: #996633;
    float:left;
 }
 
-#mylists-header {
+.mylists-header {
   margin: 5px 10px;
 }
 
-#mylists-mainbody {
+.mylists-mainbody {
   margin: 10px;
   height: 100%;
   background-color: blue;

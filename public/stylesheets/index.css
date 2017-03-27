@@ -1,1 +1,50 @@
 body {margin:0;}
+
+/* Header */
+.header-container {
+  width: 100%
+  height: 100px;
+  display: block;
+  top:0;
+  background-color: orange;
+}
+
+/* Right side index container */
+.recom-container {
+  flex: 1;
+  height: 450px;
+  background-color: #006622;
+}
+
+/* Lesft side index container*/
+.myspot-container {
+  width:60%;
+  height: 450px;
+  background-color: grey;
+}
+
+/* Main body */
+.mainbody-container {
+  display:flex;
+}
+
+/* Page contents container */
+.flex-container {
+    display: -webkit-flex;
+    display: flex;  
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    text-align: center;
+    background-color: aquamarine;
+}
+
+.flex-container > * {
+    padding: 15px;
+    -webkit-flex: 1 100%;
+    flex: 1 100%;
+}
+
+footer {
+  background: #aaa;color:white;
+  bottom: 0;
+}

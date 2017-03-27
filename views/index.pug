@@ -2,4 +2,14 @@ doctype html
 html
 	include _head.pug
 	body
-		include _header.pug
+		
+		.indexpage-container
+			.header-container
+				include _header.pug
+			.mainbody-container
+				.myspot-container
+					include _myspot.pug
+				.recom-container
+					include _recom.pug
+			.footer-container
+				include _footer.pug
