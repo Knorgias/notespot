@@ -1,0 +1,11 @@
+doctype html
+html
+	include _head.pug
+	body
+		.indexpage-container
+			.header-container
+				include _header.pug
+			form(action= "/login" , method="post", class="loginMenu")
+				input(type="name", name="username", placeholder="username", class="mdl-textfield__input", class="mdl-textfield__input")
+				input(type="password", name="password", placeholder="password", class="mdl-textfield__input")
+				input(type="submit", value="Login", class="mdl-button mdl-js-button mdl-button--raised")
