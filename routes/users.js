@@ -3,25 +3,32 @@ const router = express.Router();
 const db = require('../modules/database');
 
 
-// router.get('/', (req, res) => {
+router.get('/', (req, res) => {
 	
-// 	if(!req.session.user){
-// 		res.render('index');
-// 	} else {
-// 		res.redirect('/profile')
-// 	}
-// })
+	if(!req.session.user){
+		res.render('index');
+	} else {
+		res.redirect('profile')
+	}
+})
+
+router.get('/register', (req, res) => {
+	res.render('register')
+})
 
 router.post('/register', (req, res) =>{
 	var newUser = {
-		name: req.body.username,
+		username: req.body.username,
+		password: req.body.password,
 		email: req.body.email,
-		password: req.body.password
+		name: req.body.name,
+		surname: req.body.surname,
+		address: req.body.address
 	}
 
-	db.User.create(newUser).then(theuser => {
-		req.session.user = theuser
-		res.redirect('/profile')
+	db.Users.create(newUser).then( user => {
+		req.session.user = user
+		res.redirect('profile')
 	})
 	
 })
@@ -30,21 +37,23 @@ router.get('/login', (req, res) => {
 	res.render('login')
 })
 
+/*After user submits login data*/
 router.post('/login', (req, res) => {
-	db.User.findOne( {
+	console.log(req.body.username)
+	db.Users.findOne( {
 		where: {
-			name: req.body.username
-		},
-		include: [ {
-			model: db.Post,
-			include: [ db.Comment ]
-		} ]
+			username: req.body.username
+		}
+		// include: [ {
+		// 	model: db.Post,
+		// 	include: [ db.Comment ]
+		// } ]
 	}).then( user => {
-
+		console.log('User is: ' + user.username)
 		if(user == null  || user.password != req.body.password){
 			res.send('Wrong password or invalid user')
 		} else {
-			req.session.user = theuser
+			req.session.user = user.username
 			res.redirect('profile');
 		}
 	}).catch( err => {
@@ -53,13 +62,13 @@ router.post('/login', (req, res) => {
 
 })
 
-
+/* When profile page is requested*/
 router.get('/profile', (req, res) => {
 
 	if(req.session.user == null){
 		res.redirect('/')
 	} else {
-		db.User.findOne( {
+		db.Users.findOne( {
 			where: {
 				email: req.session.user.email
 			}
@@ -72,20 +81,20 @@ router.get('/profile', (req, res) => {
 	}
 })
 
-
-router.get('/:id', (req, res) => {
+/*When specific user id is requested*/
+router.get('/find/:id', (req, res) => {
 
 	if(req.params.id == null){
 		res.send('no user found')
 	} else {
-	db.User.findOne( {
+	db.Users.findOne( {
 		where: {
 			id: req.params.id
-		},
-		include: [ {
-			model: db.Post,
-			include: [db.Comment]
-			} ]
+		}
+		// include: [ {
+		// 	model: db.Post,
+		// 	include: [db.Comment]
+		// 	} ]
 	}).then( user => {
 		res.render('users', { user: user })
 		
@@ -104,7 +113,7 @@ router.post('/status', (req, res) => {
 	
 
 	db.Post.create(newPost).then( () => {
-		res.redirect('/profile')
+		res.redirect('profile')
 	}).catch(err => {
 		console.log(err);
 	})
@@ -132,8 +141,10 @@ router.post('/search', (req, res) => {
 })
 
 
-router.post('/logout', (req, res) => {
-	req.session.destroy();
+router.get('/logout', (req, res) => {
+	console.log('Trying to logout')
+	req.session.destroy()
+	console.log('Session destroyed')
 	res.redirect('/')
 })
 

@@ -1,0 +1,20 @@
+doctype html
+html
+	include _head.pug
+	body
+		
+		.indexpage-container
+			.header-container
+				.topnav
+					a(href='/') Contact
+					|
+					a(href='/users/logout') Logout
+					|
+					a(id='title' href='/') Notespot
+			.mainbody-container
+				.myspot-container
+					include _myspot.pug
+				.recom-container
+					include _recom.pug
+			.footer-container
+				include _footer.pug

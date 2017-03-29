@@ -15,38 +15,29 @@ db.connection = new Sequelize (
 )
 
 //Model for the user table
-db.Users = db.connection.define('Users', {
+db.Users = db.connection.define('user', {
   username: Sequelize.STRING,
   password: Sequelize.STRING,
   email: Sequelize.STRING,
   name: Sequelize.STRING,
   surname: Sequelize.STRING,
-  description: Sequelize.STRING
-}, {
-  tableName: 'Users', // this will define the table's name
-  //timestamps: false   // this will deactivate the timestamp columns
+  description: Sequelize.STRING,
+  address: Sequelize.STRING
 });
 
 //Model for the house table
-db.Lists = db.connection.define('Lists', {
+db.Lists = db.connection.define('list', {
+  name: Sequelize.STRING,
+  location: Sequelize.STRING,
   description: Sequelize.STRING,
-  address: Sequelize.STRING,
   type: Sequelize.STRING,
   //owner_id: Sequelize.STRING
-}, {
-  tableName: 'Lists', // this will define the table's name
-  //timestamps: false   // this will deactivate the timestamp columns
 });
 
 //Model for the rentals table
-db.Videos = db.connection.define('Videos', {
-  description: Sequelize.STRING,
-  start_date: Sequelize.STRING,
-  End_date: Sequelize.STRING,
-  cost: Sequelize.STRING
-}, {
-  tableName: 'Videos', // this will define the table's name
-  //timestamps: false   // this will deactivate the timestamp columns
+db.Videos = db.connection.define('video', {
+  url: Sequelize.STRING,
+  description: Sequelize.STRING
 });
 
 //Table associations
@@ -97,19 +88,22 @@ db.connection
         } ),
         //Inserting demo houses to database
         db.Lists.create( {
+          name: 'early morning',
           description: 'custom list',
           location: '404 somestreet, Amsterdam ',
-          gengre: 'pop'
+          type: 'pop'
         } ),
         db.Lists.create( {
+          name: 'busy week',
           description: 'custom list',
           location: '404 somestreet, Amsterdam ',
-          gengre: 'blues'
+          type: 'rock'
         } ),
         db.Lists.create( {
+          name: 'chillout',
           description: 'custom list',
           location: '404 somestreet, Amsterdam ',
-          gengre: 'hip-hop'
+          type: 'jazz'
         } ),
     ])
   })

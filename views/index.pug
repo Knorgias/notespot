@@ -2,14 +2,29 @@ doctype html
 html
 	include _head.pug
 	body
-		
 		.indexpage-container
 			.header-container
 				include _header.pug
-			.mainbody-container
-				.myspot-container
-					include _myspot.pug
-				.recom-container
-					include _recom.pug
-			.footer-container
-				include _footer.pug
+			h4 Login below
+			form(action='/users/login' method='POST')
+				.imgcontainer
+					img.avatar(src='img_avatar2.png', alt='Avatar')
+				.container
+					label
+						b Username
+					|  
+					input(type='text', placeholder='Enter Username', name='username', required='')
+					|  
+					label
+						b Password
+					|  
+					input(type='password', placeholder='Enter Password', name='password', required='')
+					|  
+					button(type='submit') Login
+					|  
+					input(type='checkbox', checked='checked')
+					|  Remember me
+					.container(style='background-color:#f1f1f1')
+						span.psw
+						| Forgot 
+						a(href='#') password?

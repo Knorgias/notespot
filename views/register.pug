@@ -1,0 +1,46 @@
+doctype html
+html
+	include _head.pug
+	body
+		.indexpage-container
+			.header-container
+				include _header.pug
+			h4 Register below
+			form(action='/users/register' method='post')
+				.imgcontainer
+					img.avatar(src='img_avatar2.png', alt='Avatar')
+				.container
+					label
+						b Username
+					|  
+					input(type='text', placeholder='Enter Username', name='username', required='')
+					|  
+					label
+						b Password
+					|  
+					input(type='password', placeholder='Enter Password', name='password', required='')
+					|  
+					label
+						b Email
+					|  
+					input(type='text', placeholder='Enter email', name='email', required='')
+					|  
+					label
+						b Name
+					|  
+					input(type='text', placeholder='Enter first name', name='name', required='')
+					|  
+					label
+						b Surname
+					|  
+					input(type='text', placeholder='Enter last name', name='surname', required='')
+					|  
+					label
+						b Address
+					|  
+					input(type='text', placeholder='Enter address', name='address', required='')
+					|  
+					button(type='submit') Submit
+					|  
+					.container(style='background-color:#f1f1f1')
+						button.cancelbtn(type='button') Cancel
