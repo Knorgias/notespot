@@ -9,18 +9,143 @@ body {margin:0;}
   background-color: orange;
 }
 
+/*Navbar*/
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+/*Search*/
+input[type=text] {
+    width: 250px;
+    margin: 0px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 95%;
+}
+
+#title {
+  float: left;
+}
+
 /* Right side index container */
 .recom-container {
   flex: 1;
-  height: 450px;
+  min-width: 200px;
+  min-height: 280px;
   background-color: #006622;
 }
 
-/* Lesft side index container*/
+#recom-header {
+  width:580px;
+  height: 50px;
+  margin: auto;
+  background-color: #00b33c;
+  text-align: center;
+  margin: 5px;
+  border: solid 3px black;
+}
+
+#recom-mainbody {
+  background-color:#e64d00;
+  top: 60px;
+  bottom: 0;
+  margin: auto;
+  width: 580px;
+  height: 380px;
+}
+
+#recom-vid {
+  width: 60px;
+  height: 40px;
+  background-color: black;
+}
+
+.recom-mainbody-playlist{
+  overflow:scroll;
+}
+
+/* Left side index container*/
 .myspot-container {
-  width:60%;
-  height: 450px;
+  width: 60%;
+  min-width: 300px;
+  min-height: 280px;
   background-color: grey;
+}
+
+.myspot-header {
+  width: 100%;
+  height: 50px;
+  background-color: #00b33c;
+  text-align: center;
+  border: solid 3px black;
+}
+
+.myspot-mainbody {
+  background-color: #00b33c;
+  padding: 5px;
+  min-height: 300px;
+  display: flex;
+}
+
+.lastplay-list-container {
+  width: 60%;
+  min-height: 280px;
+  background-color: #00b386;
+  float:left;
+  overflow: auto;
+}
+
+.lastplay-list-header {
+  margin: 5px 10px;
+}
+
+.mylists-container {
+   flex:1;
+   min-height: 280px;
+   background-color: #996633;
+   float:left;
+}
+
+.mylists-header {
+  margin: 5px 10px;
+}
+
+.mylists-mainbody {
+  margin: 10px;
+  min-height: 250px;
+  background-color: blue;
 }
 
 /* Main body */
@@ -44,7 +169,16 @@ body {margin:0;}
     flex: 1 100%;
 }
 
+/* Footer */
+.footer-container {
+  text-align: right;
+  background-color: #aaa;
+  padding-right: 20px;
+}
+
+
 footer {
-  background: #aaa;color:white;
-  bottom: 0;
+  color: white;
+  width: 100%;
+  height: auto;
 }

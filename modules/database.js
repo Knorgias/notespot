@@ -23,6 +23,8 @@ db.Users = db.connection.define('user', {
   surname: Sequelize.STRING,
   description: Sequelize.STRING,
   address: Sequelize.STRING
+  },{
+    timestamps: false // true by default
 });
 
 //Model for the house table
@@ -31,13 +33,18 @@ db.Lists = db.connection.define('list', {
   location: Sequelize.STRING,
   description: Sequelize.STRING,
   type: Sequelize.STRING,
+  },{
+    timestamps: false // true by default
   //owner_id: Sequelize.STRING
 });
 
 //Model for the rentals table
 db.Videos = db.connection.define('video', {
+  name: Sequelize.STRING,
   url: Sequelize.STRING,
-  description: Sequelize.STRING
+  description: Sequelize.STRING,
+  }, {
+    timestamps: false // true by default
 });
 
 //Table associations
@@ -88,23 +95,51 @@ db.connection
         } ),
         //Inserting demo houses to database
         db.Lists.create( {
+          userId: 1,
+          name: 'recommended',
+          description: 'recommended basec on location',
+          location: 'Amsterdam ',
+          type: 'vicinity'
+        } ),
+        db.Lists.create( {
+          userId: 1,
           name: 'early morning',
           description: 'custom list',
           location: '404 somestreet, Amsterdam ',
           type: 'pop'
         } ),
         db.Lists.create( {
+          userId: 1,
           name: 'busy week',
           description: 'custom list',
           location: '404 somestreet, Amsterdam ',
           type: 'rock'
         } ),
         db.Lists.create( {
+          userId: 1,
           name: 'chillout',
           description: 'custom list',
           location: '404 somestreet, Amsterdam ',
           type: 'jazz'
         } ),
+        db.Videos.create({
+          listId: 1,
+          name: 'Creep - Vintage Postmodern Jukebox Radiohead Cover ft. Haley Reinhart',
+          url: 'm3lF2qEA2cw',
+          description: 'Published on Apr 7, 2015'
+        }),
+        db.Videos.create({
+          listId: 1,
+          name: '10 best places to see in Amsterdam',
+          url: '5G-lqrzTv-U',
+          description: 'recommended Amsterdam'
+        }),
+        db.Videos.create({
+          listId: 1,
+          name: 'Amsterdam Travel Guide',
+          url: 'm3lF2qEA2cw',
+          description: 'recommended Amsterdam'
+        })
     ])
   })
   .then( f => { console.log('Database updated successfully!') })

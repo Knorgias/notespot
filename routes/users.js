@@ -70,11 +70,17 @@ router.get('/profile', (req, res) => {
 	} else {
 		db.Users.findOne( {
 			where: {
-				email: req.session.user.email
-			}
-
+				username: 'knorgias'
+			},
+			include: [{
+				model: db.Lists,
+				include: [db.Videos]
+			}]
 		}).then( user => {
-			res.render('profile', { user: user });
+			console.log('***Beggining of object ***')
+			console.log(JSON.stringify(user))
+			console.log('***Ending of object ***')
+			res.render('profile', { user: user })
 		}).catch( err => {
 			console.log(err);
 		})
@@ -125,7 +131,7 @@ router.post('/status', (req, res) => {
 router.post('/search', (req, res) => {
 	var searchQuery = req.body.search.toLowerCase();
 
-	db.User.findAll({
+	db.Users.findAll({
 		where: {
 			name: {
 				$like: searchQuery
@@ -136,6 +142,22 @@ router.post('/search', (req, res) => {
 		res.render('search', {users: foundUsers, query: searchQuery});
 
 	}).catch( err => {
+		console.log(err);
+	})
+})
+
+/*Get video list after AJAX request*/
+router.get('/videos', (req, res) => {
+	console.log('Retrieving videos..')
+	db.Videos.findAll()
+	.then( videos => {
+		let myVideos = []
+		videos.forEach( video => {
+			console.log('Video url: ', video.url)
+			myVideos.push(video.url)
+		})
+	})
+	.catch( err => {
 		console.log(err);
 	})
 })
