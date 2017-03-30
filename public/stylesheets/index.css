@@ -64,6 +64,9 @@ input[type=text]:focus {
   flex: 1;
   min-width: 200px;
   min-height: 280px;
+  height: 600px;
+  overflow: auto;
+  overflow-x: hidden;
   background-color: #006622;
 }
 
@@ -96,11 +99,22 @@ input[type=text]:focus {
   overflow:scroll;
 }
 
+.playlists {
+  list-style-type: none;
+}
+
+.listEntity:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
 /* Left side index container*/
 .myspot-container {
   width: 60%;
   min-width: 300px;
   min-height: 280px;
+  height: 600px;
+  overflow: auto;
   background-color: grey;
 }
 

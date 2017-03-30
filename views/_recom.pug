@@ -1,18 +1,20 @@
 .recom-header
-	h3  Recommendation List of #{user.name}
+	h5  #{user.name}, recommended for you for location Amsterdam:
 	.recom-mainbody
 		ul.recom-mainbody-playlist
 			if user.lists.length > 0
 				each list in user.lists
 					li(class="mdl-list__item")= list.name
-						form(action='/posts/delete/' + list.id, method="post")
+						form(action='/lists/delete/' + list.id, method="post")
 							//- input(type='hidden', name='_method', value='DELETE')
 							button(class="mdl-button mdl-js-button mdl-button--raised deleteButton" type="submit" data-post=list.id) X
 					if list.videos.length > 0
 						each video in list.videos
-							li(class="comments")= video.name	
-								form(action='/posts/comment', method="post")
-									input(class="mdl-textfield__input comments", name="comment" , type="text", placeholder="leave your comment")
+							li(class="videos")= video.name
+								form(action='/lists/video', method="post")
+									iframe(width='100%', height='180', src='https://www.youtube.com/embed/'+video.url, frameborder='0', allowfullscreen='')
 									button(class="mdl-button mdl-js-button mdl-button--raised deleteButton" type="submit" data-post=video.id) X
 					else
-						p(class="profileP") You have no lists
+						p(class="videos") You have no videos
+			else
+				p(class='lists') You have no lists

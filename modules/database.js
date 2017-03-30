@@ -124,9 +124,9 @@ db.connection
         } ),
         db.Videos.create({
           listId: 1,
-          name: 'Creep - Vintage Postmodern Jukebox Radiohead Cover ft. Haley Reinhart',
-          url: 'm3lF2qEA2cw',
-          description: 'Published on Apr 7, 2015'
+          name: '15 Hidden Secrets & Best Places in Amsterdam',
+          url: 'Xnp2IkoOppY',
+          description: 'recommended Amsterdam'
         }),
         db.Videos.create({
           listId: 1,
@@ -137,7 +137,7 @@ db.connection
         db.Videos.create({
           listId: 1,
           name: 'Amsterdam Travel Guide',
-          url: 'm3lF2qEA2cw',
+          url: 'kfe471jBCpA',
           description: 'recommended Amsterdam'
         })
     ])

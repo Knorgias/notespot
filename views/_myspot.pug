@@ -1,13 +1,10 @@
 .myspot-header
-	h3  Kostas, welcome to your personal space
+	h3  #{user.name}, welcome to your personal space
 .myspot-mainbody
 	.lastplay-list-container
 		.lastplay-list-header
-			h4.lastplay-list-header-title  Last played videos in current location
-		#player
-		script(src='/javascripts/iframe.js')
+			h4.lastplay-list-header-title  Playlist
+		#video-container
+		script(src='/javascripts/myspot.js')
 	.mylists-container
-		.mylists-header
-			h4.mylists-header-title  My Lists
-		.mylists-mainbody
-			ul.playlists
+		include _mylists.pug

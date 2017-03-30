@@ -1,0 +1,16 @@
+.mylists-header
+	h4.mylists-header-title  My Lists
+.mylists-mainbody
+	#demodiv
+	ul.playlists
+		if user.lists.length > 0
+			each list in user.lists
+				li(class="mdl-list__item")
+					.listEntity(type="submit" id='' data-post=list.id)= list.name
+					form(action='/lists/delete/' + list.id, method="post")
+						//- input(type='hidden', name='_method', value='DELETE')
+						button(class="mdl-button mdl-js-button mdl-button--raised deleteButton" type="submit" data-post=list.id) X
+		else
+			p(class='lists') You have no lists
+	script(src='/javascripts/jquery.js')
+	script(src='/javascripts/mylists.js')
